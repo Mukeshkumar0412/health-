@@ -1,0 +1,162 @@
+components/Sidebar/Sidebar.css
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  left: 0;
+  top: 80px; /* Header height */
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  z-index: 90;
+}
+
+.sidebar-heading {
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 1rem 0 0.5rem 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #555;
+}
+
+.sidebar-nav-item:hover {
+  background-color: #f0f7ff;
+  color: #2d8cf0;
+}
+
+.sidebar-nav-item.active {
+  background-color: #e6f7ff;
+  color: #2d8cf0;
+  font-weight: 500;
+}
+
+.nav-icon {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+.sidebar-nav-item span {
+  font-size: 0.95rem;
+}
+
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 240px;
+    padding: 1.25rem 0.75rem;
+  }
+  
+  .sidebar-nav-item {
+    padding: 0.65rem 0.75rem;
+  }
+  
+  .nav-icon {
+    margin-right: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .sidebar-nav-item span {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 220px;
+    top: 70px; 
+  }
+  
+  .sidebar-heading {
+    font-size: 0.8rem;
+    margin-left: 0.75rem;
+  }
+  
+  .sidebar-nav-item {
+    padding: 0.6rem 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    transform: translateX(-100%);
+    padding: 1rem 0.5rem;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar-nav-item span {
+    font-size: 0.85rem;
+  }
+  
+  .nav-icon {
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 180px;
+    top: 60px; 
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .sidebar-heading {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .sidebar-nav-item {
+    padding: 0.5rem;
+  }
+  
+  .sidebar-nav-item span {
+    font-size: 0.8rem;
+  }
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  left: 10px;
+  top: 90px;
+  z-index: 100;
+  background: #2d8cf0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}

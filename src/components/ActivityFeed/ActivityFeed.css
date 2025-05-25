@@ -1,0 +1,129 @@
+/* components/DashboardMainContent/ActivityFeed/ActivityFeed.css */
+
+.activity-feed {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.activity-feed:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.activity-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.activity-summary {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.activity-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  height: 200px;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.chart-bar {
+  flex: 1;
+  background-color: #3b82f6;
+  border-radius: 4px 4px 0 0;
+  min-width: 0;
+  transition: height 0.5s ease, background-color 0.3s ease;
+  position: relative;
+}
+
+.chart-bar::after {
+  content: attr(data-value) '%';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+.chart-bar:nth-child(1) { background-color: #3b82f6; } 
+.chart-bar:nth-child(2) { background-color: #6366f1; } 
+.chart-bar:nth-child(3) { background-color: #8b5cf6; } 
+.chart-bar:nth-child(4) { background-color: #ec4899; } 
+.chart-bar:nth-child(5) { background-color: #f59e0b; } 
+.chart-bar:nth-child(6) { background-color: #10b981; } 
+.chart-bar:nth-child(7) { background-color: #ef4444; } 
+@media (max-width: 768px) {
+  .chart-bars {
+    height: 150px;
+  }
+  
+  .chart-bar::after {
+    top: -22px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-feed {
+    padding: 1rem;
+  }
+  
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .chart-bars {
+    height: 120px;
+    gap: 0.4rem;
+  }
+  
+  .chart-labels span {
+    font-size: 0.7rem;
+  }
+  
+  .chart-bar::after {
+    top: -20px;
+  }
+}
+@keyframes barGrow {
+  from { height: 0; }
+  to { height: var(--target-height); }
+}
+
+.chart-bar {
+  animation: barGrow 1s ease-out forwards;
+}

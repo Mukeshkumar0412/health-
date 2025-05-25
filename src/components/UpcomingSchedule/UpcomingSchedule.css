@@ -1,0 +1,147 @@
+.upcoming-schedule {
+  background-color: #ffffff;
+  border-radius: clamp(12px, 2vw, 16px);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.upcoming-schedule:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-schedule h2 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+}
+
+.schedule-days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.schedule-day {
+  background-color: #f8fafc;
+  border-radius: clamp(8px, 1.5vw, 12px);
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.schedule-day h3 {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #3b82f6;
+  margin: 0 0 clamp(0.75rem, 1.5vw, 1rem) 0;
+  padding-bottom: clamp(0.5rem, 1vw, 0.75rem);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.appointment-item {
+  display: flex;
+  align-items: center;
+  padding: clamp(0.5rem, 1vw, 0.75rem) 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.appointment-item:last-child {
+  border-bottom: none;
+}
+
+.appointment-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(32px, 6vw, 40px);
+  height: clamp(32px, 6vw, 40px);
+  border-radius: 50%;
+  background-color: #e0f2fe;
+  color: #0ea5e9;
+  margin-right: clamp(0.75rem, 1.5vw, 1rem);
+  flex-shrink: 0;
+}
+
+.appointment-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.appointment-details h4 {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: #1e293b;
+  margin: 0 0 clamp(0.15rem, 0.3vw, 0.25rem) 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.appointment-details p {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: #64748b;
+  margin: 0;
+}
+
+.appointment-time {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: #ffffff;
+  background-color: #3b82f6;
+  border-radius: 4px;
+  padding: clamp(0.15rem, 0.3vw, 0.25rem) clamp(0.5rem, 1vw, 0.75rem);
+  margin-left: clamp(0.5rem, 1vw, 1rem);
+}
+
+
+@media (max-width: 768px) {
+  .schedule-days {
+    grid-template-columns: 1fr;
+  }
+  
+  .appointment-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .appointment-time {
+    margin-left: 0;
+    margin-top: 0.25rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .upcoming-schedule {
+    padding: 0.75rem;
+  }
+  
+  .appointment-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.875rem;
+  }
+  
+  .appointment-details h4 {
+    white-space: normal;
+  }
+}
+
+@keyframes scheduleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.schedule-day {
+  animation: scheduleAppear 0.4s ease-out forwards;
+  animation-delay: calc(var(--day-order) * 0.1s);
+}
+
+.appointment-item {
+  animation: scheduleAppear 0.4s ease-out forwards;
+  animation-delay: calc(var(--appt-order) * 0.05s + 0.2s);
+}

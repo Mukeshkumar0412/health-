@@ -1,0 +1,124 @@
+.health-status-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+}
+
+.health-card {
+  background-color: #ffffff;
+  border-radius: clamp(12px, 2vw, 16px);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid;
+}
+
+.health-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+}
+
+.health-card h3 {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.status-badge {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  padding: clamp(0.15rem, 0.3vw, 0.25rem) clamp(0.5rem, 1vw, 0.75rem);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.card-date {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: #64748b;
+  margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+}
+
+.card-description {
+  font-size: clamp(0.875rem, 1.75vw, 1rem);
+  color: #334155;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.health-card.healthy {
+  border-left-color: #22c55e;
+}
+
+.health-card.healthy .status-badge {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.health-card.warning {
+  border-left-color: #f59e0b;
+}
+
+.health-card.warning .status-badge {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.health-card.critical {
+  border-left-color: #ef4444;
+}
+
+.health-card.critical .status-badge {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+
+@media (max-width: 768px) {
+  .health-status-cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .health-card {
+    padding: clamp(0.75rem, 2vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .health-status-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .status-badge {
+    align-self: flex-start;
+  }
+}
+
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.health-card {
+  animation: cardEnter 0.4s ease-out forwards;
+  animation-delay: calc(var(--order) * 0.1s);
+}

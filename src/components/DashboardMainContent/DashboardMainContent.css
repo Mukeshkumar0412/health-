@@ -1,0 +1,106 @@
+.dashboard-main {
+  flex: 1;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+}
+
+.dashboard-left {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.dashboard-right {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-main > * {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+
+.section-card {
+  background: white;
+  border-radius: clamp(12px, 2vw, 16px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: #1e293b;
+  margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+  font-weight: 600;
+}
+
+.anatomy-section {
+  min-height: 400px;
+}
+
+.calendar-view {
+  min-height: 300px;
+}
+
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding: 0.75rem;
+  }
+  
+  .section-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .anatomy-section,
+  .calendar-view {
+    min-height: auto;
+  }
+}
+
+@media print {
+  .dashboard-main {
+    padding: 0;
+    background: white;
+  }
+  
+  .section-card {
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+}
